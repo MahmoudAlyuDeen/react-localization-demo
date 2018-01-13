@@ -3,9 +3,9 @@ import {
   toggleLanguage,
   withDirectionStyle,
   withLanguage,
-} from "./redux/language/language";
+} from "./state/language/language";
 import { getString } from "./resources/strings";
-import { withDispatch } from "./redux/withDispatch";
+import { withDispatch } from "./state/withDispatch";
 
 @withLanguage
 @withDispatch
