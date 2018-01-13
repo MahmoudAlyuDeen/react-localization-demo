@@ -1,15 +1,13 @@
 import React from "react";
-import { withDirectionStyle, withLanguage, } from "./language/language";
-import { getString } from "./resources/strings";
+import { withDirectionStyle } from "./language/language";
 import { withDispatch } from "./state/withDispatch";
-import LanguageSwitch from "./language/LanguageSwitch";
+import Restaurants from "./restaurants/RestaurantsIndex";
+import { fixedDiv } from "./resources/styles";
 
-const App = ({ directionStyle, language }) => (
-  <div style={directionStyle}>
-    {getString("HELLO_WORLD", language)}
-    <br />
-    <LanguageSwitch />
+const App = ({ directionStyle }) => (
+  <div style={{ ...directionStyle, ...fixedDiv.appParentStyle }}>
+    <Restaurants />
   </div>
 );
 
-export default withLanguage(withDispatch(withDirectionStyle(App)));
+export default withDispatch(withDirectionStyle(App));
