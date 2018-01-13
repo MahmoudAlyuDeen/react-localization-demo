@@ -17,12 +17,7 @@ const coverStyle = {
   height: 200,
 };
 
-@withLanguage
-// noinspection JSUnresolvedVariable
-@connect((state, props) => ({
-  tags: getRelationship(state, props.restaurant, "tags"),
-}))
-export default class Restaurant extends PureComponent {
+class Restaurant extends PureComponent {
   render() {
     return (
       <Card style={parentStyle}>
@@ -45,4 +40,10 @@ const Info = ({ restaurant, language, tags }) => (
 
     <Typography>{getTagsString(tags, language)}</Typography>
   </CardContent>
+);
+
+export default withLanguage(
+  connect((state, props) => ({
+    tags: getRelationship(state, props.restaurant, "tags"),
+  }))(Restaurant),
 );

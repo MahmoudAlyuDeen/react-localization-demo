@@ -9,9 +9,7 @@ import { getString } from "../resources/strings";
 import CircularProgress from "material-ui/Progress/CircularProgress";
 import { withLanguage } from "../language/language";
 
-@withLanguage
-@query("restaurants", api.getRestaurants)
-export default class RestaurantList extends PureComponent {
+class RestaurantList extends PureComponent {
   render() {
     const { restaurants } = this.props;
     return (
@@ -28,12 +26,18 @@ const Content = ({ restaurants, filter }) => (
     {restaurants
       .filter(filterRestaurants(filter))
       .map(restaurant => (
-        <Restaurant key={`restaurant,${restaurant.id}`} restaurant={restaurant} />
+        <Restaurant
+          key={`restaurant,${restaurant.id}`}
+          restaurant={restaurant}
+        />
       ))}
   </div>
 );
 
-const Status = ({ status: { restaurants: { hasFailed, refetch } }, language }) => (
+const Status = ({
+  status: { restaurants: { hasFailed, refetch } },
+  language,
+}) => (
   <div style={fixedDiv.centerContentStyle}>
     {hasFailed ? (
       <Button raised color="primary" onClick={() => refetch()}>
@@ -43,4 +47,8 @@ const Status = ({ status: { restaurants: { hasFailed, refetch } }, language }) =
       <CircularProgress />
     )}
   </div>
+);
+
+export default withLanguage(
+  query("restaurants", api.getRestaurants)(RestaurantList),
 );
