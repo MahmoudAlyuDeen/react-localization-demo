@@ -2,10 +2,10 @@
 
 const strings = {
   ar: {
-    HELLO_WORLD: "Hello World in Arabic",
+    ACTION_RETRY: "إعادة المحاولة",
   },
   en: {
-    HELLO_WORLD: "Hello World in English",
+    ACTION_RETRY: "Retry",
   },
 };
 
