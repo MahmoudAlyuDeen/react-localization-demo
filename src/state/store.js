@@ -1,12 +1,9 @@
-import { createStore, applyMiddleware, compose, combineReducers } from "redux";
-
-import {
-  reducer as beesReducer,
-  middleware as beesMiddleware,
-} from "redux-bees";
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+import { middleware as beesMiddleware, reducer as beesReducer, } from "redux-bees";
 import { languageReducer } from "../language/language";
+import { loadState, saveState } from "./Persistence";
 
-export const configure = (initialState = {}) => {
+const configure = (initialState = loadState()) => {
   const reducer = combineReducers({
     bees: beesReducer,
     language: languageReducer,
@@ -23,3 +20,13 @@ export const configure = (initialState = {}) => {
     composeEnhancers(applyMiddleware(beesMiddleware())),
   );
 };
+
+const store = configure(loadState());
+
+store.subscribe(() => {
+  const state = store.getState();
+  console.log("New state", state);
+  saveState(store.getState());
+});
+
+export default store;
