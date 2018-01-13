@@ -10,6 +10,7 @@ const parentStyle = {
   background: "white",
   display: "flex",
   alignItems: "center",
+  padding: "0 4px",
 };
 
 const searchIconStyle = {
@@ -35,9 +36,5 @@ export const Toolbar = props => (
 const SearchIcon = () => <Search style={searchIconStyle} />;
 
 const FilterInput = ({ filter, onFilterChange }) => (
-  <Input
-    style={inputStyle}
-    value={filter}
-    onChange={event => onFilterChange(event.target.value)}
-  />
+  <Input style={inputStyle} value={filter} onChange={event => onFilterChange(event.target.value)} />
 );
