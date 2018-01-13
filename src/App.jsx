@@ -1,26 +1,15 @@
-import React, { PureComponent } from "react";
-import {
-  toggleLanguage,
-  withDirectionStyle,
-  withLanguage,
-} from "./state/language/language";
+import React from "react";
+import { withDirectionStyle, withLanguage, } from "./language/language";
 import { getString } from "./resources/strings";
 import { withDispatch } from "./state/withDispatch";
+import LanguageSwitch from "./language/LanguageSwitch";
 
-@withLanguage
-@withDispatch
-@withDirectionStyle
-export default class App extends PureComponent {
-  render() {
-    const { language, dispatch, directionStyle } = this.props;
-    return (
-      <div style={directionStyle}>
-        {getString("HELLO_WORLD", language)}
-        <br />
-        <button onClick={() => dispatch(toggleLanguage())}>
-          Switch language
-        </button>
-      </div>
-    );
-  }
-}
+const App = ({ directionStyle, language }) => (
+  <div style={directionStyle}>
+    {getString("HELLO_WORLD", language)}
+    <br />
+    <LanguageSwitch />
+  </div>
+);
+
+export default withLanguage(withDispatch(withDirectionStyle(App)));

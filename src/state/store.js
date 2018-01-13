@@ -4,7 +4,7 @@ import {
   reducer as beesReducer,
   middleware as beesMiddleware,
 } from "redux-bees";
-import { languageReducer } from "./language/language";
+import { languageReducer } from "../language/language";
 
 export const configure = (initialState = {}) => {
   const reducer = combineReducers({
