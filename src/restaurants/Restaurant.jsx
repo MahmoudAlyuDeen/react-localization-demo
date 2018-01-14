@@ -17,7 +17,11 @@ const coverStyle = {
   height: 200,
 };
 
-class Restaurant extends PureComponent {
+@withLanguage
+@connect((state, props) => ({
+  tags: getRelationship(state, props.restaurant, "tags"),
+}))
+export default class Restaurant extends PureComponent {
   render() {
     return (
       <Card style={parentStyle}>
@@ -40,10 +44,4 @@ const Info = ({ restaurant, language, tags }) => (
 
     <Typography>{getTagsString(tags, language)}</Typography>
   </CardContent>
-);
-
-export default withLanguage(
-  connect((state, props) => ({
-    tags: getRelationship(state, props.restaurant, "tags"),
-  }))(Restaurant),
 );

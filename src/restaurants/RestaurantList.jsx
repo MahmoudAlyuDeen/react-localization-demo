@@ -9,7 +9,9 @@ import { getString } from "../resources/strings";
 import CircularProgress from "material-ui/Progress/CircularProgress";
 import { withLanguage } from "../language/language";
 
-class RestaurantList extends PureComponent {
+@withLanguage
+@query("restaurants", api.getRestaurants)
+export default class RestaurantList extends PureComponent {
   render() {
     const { restaurants } = this.props;
     return (
@@ -47,8 +49,4 @@ const Status = ({
       <CircularProgress />
     )}
   </div>
-);
-
-export default withLanguage(
-  query("restaurants", api.getRestaurants)(RestaurantList),
 );
