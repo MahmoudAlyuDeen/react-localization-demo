@@ -1,4 +1,4 @@
-# makinah-react
-Code repository for Zyda tech talk at AlMakinah
+# zyda-react
+Code repository for Zyda demos
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
