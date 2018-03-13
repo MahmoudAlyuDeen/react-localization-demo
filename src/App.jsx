@@ -1,14 +1,18 @@
 import React from "react";
-import { withDirectionStyle, withLanguage, } from "./language/language";
+import {
+  toggleLanguage,
+  withDirectionStyle,
+  withLanguage
+} from "./language/language";
 import { getString } from "./resources/strings";
-import LanguageSwitch from "./language/LanguageSwitch";
+import { withDispatch } from "./state/withDispatch";
 
-const App = ({ directionStyle, language }) => (
+const App = ({ directionStyle, language, dispatch }) => (
   <div style={directionStyle}>
     {getString("HELLO_WORLD", language)}
     <br />
-    <LanguageSwitch />
+    <button onClick={() => dispatch(toggleLanguage())}>Switch language</button>
   </div>
 );
 
-export default withLanguage(withDirectionStyle(App));
+export default withDispatch(withLanguage(withDirectionStyle(App)));
