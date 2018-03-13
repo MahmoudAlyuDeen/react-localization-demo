@@ -1,7 +1,6 @@
 import React from "react";
 import { withDirectionStyle, withLanguage, } from "./language/language";
 import { getString } from "./resources/strings";
-import { withDispatch } from "./state/withDispatch";
 import LanguageSwitch from "./language/LanguageSwitch";
 
 const App = ({ directionStyle, language }) => (
@@ -12,4 +11,4 @@ const App = ({ directionStyle, language }) => (
   </div>
 );
 
-export default withLanguage(withDispatch(withDirectionStyle(App)));
+export default withLanguage(withDirectionStyle(App));
