@@ -1,4 +1,7 @@
-# zyda-react
-Code repository for Zyda demos
+Companion repository to an article about localization on React.
 
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+Read the full story [here](https://medium.com/@MahmoudAlyuDeen/localize-your-react-app-with-zero-dependencies-ea14e0698cf7).
+
+To run:
+1. `git clone https://github.com/MahmoudAlyuDeen/zyda-react.git`
+2. `npm install && npm start`
