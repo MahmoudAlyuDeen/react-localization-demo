@@ -1,5 +1,3 @@
-# zyda-react
-
 Companion repository to an article about localization on React.
 
 Read the full story [here](https://medium.com/@MahmoudAlyuDeen/localize-your-react-app-with-zero-dependencies-ea14e0698cf7).
